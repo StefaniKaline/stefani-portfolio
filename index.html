@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Stefani Kaline — Engenheira de Dados</title>
+  <meta name="description" content="Portfólio de Stefani Kaline — Engenheira de Dados. Python, SQL, GCP, BigQuery, Airflow e IA aplicada a dados." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>💻</text></svg>">
+  <meta property="og:title" content="Stefani Kaline — Engenheira de Dados" />
+  <meta property="og:description" content="Pipelines de dados, automações e IA aplicada no GCP (BigQuery, Storage, Airflow)." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://seu-dominio-aqui" />
+  <meta name="theme-color" content="#0f172a" />
+  <style>
+    :root{
+      --bg:#0b0b0b;          /* fundo gradiente escuro (hero) */
+      --bg-2:#1f1f1f;        /* superfícies */
+      --card:#262626;        /* cartões */
+      --text:#e5e7eb;        /* texto base */
+      --muted:#9ca3af;       /* texto secundário */
+      --brand:#22c55e;       /* verde principal */
+      --brand-dark:#15803d;  /* verde mais escuro */
+      --ring: 0 0 0 3px rgba(34,197,94,.35);
+      --radius: 16px;
+      --shadow: 0 10px 25px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial; 
+      color:var(--text); line-height:1.6; background:linear-gradient(180deg,var(--bg) 0%, var(--bg-2) 45%, var(--bg-2) 100%);
+    }
+    a{color:var(--brand); text-decoration:none}
+    a:hover{opacity:.9; text-decoration:underline}
+    .container{max-width:1080px; margin:0 auto; padding:0 20px}
+
+    header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(180%) blur(6px); background:rgba(15,23,42,.6); border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:12px 0}
+    .brand{display:flex; gap:12px; align-items:center; font-weight:700}
+    .badge{font-size:12px; padding:4px 10px; border-radius:999px; background:rgba(34,197,94,.15); color:var(--brand); border:1px solid rgba(34,197,94,.35)}
+    .links{display:flex; gap:14px}
+    .links a{padding:8px 12px; border-radius:10px; border:1px solid transparent}
+    .links a:hover{background:rgba(255,255,255,.04); text-decoration:none; border-color:rgba(255,255,255,.08)}
+
+    .hero{padding:70px 0 40px;}
+    .hero-grid{display:grid; grid-template-columns:1.2fr .8fr; gap:36px}
+    .title{font-size:clamp(28px, 4.6vw, 46px); line-height:1.15; margin:0 0 8px; letter-spacing:.2px}
+    .subtitle{color:var(--muted); font-size:clamp(16px, 2.2vw, 18px); margin:0 0 22px}
+    .cta{display:flex; flex-wrap:wrap; gap:12px; align-items:center}
+    .btn{display:inline-flex; align-items:center; gap:10px; padding:12px 16px; border-radius:12px; border:1px solid rgba(255,255,255,.12); background:linear-gradient(180deg,rgba(34,197,94,.2),rgba(34,197,94,.05)); color:var(--text); box-shadow:var(--shadow)}
+    .btn:hover{transform:translateY(-1px); box-shadow:0 14px 30px rgba(0,0,0,.4)}
+    .btn.secondary{background:linear-gradient(180deg,rgba(21,128,61,.25),rgba(21,128,61,.08)); border-color:rgba(21,128,61,.45)}
+    .hero-card{background:var(--card); border:1px solid rgba(255,255,255,.08); border-radius:var(--radius); padding:22px; box-shadow:var(--shadow)}
+    .hero-list{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin-top:6px}
+    .chip{border:1px solid rgba(255,255,255,.12); border-radius:12px; padding:8px 10px; font-size:14px; background:rgba(255,255,255,.03)}
+
+    section{padding:36px 0}
+    .section-title{font-size:22px; margin:0 0 16px}
+
+    .grid{display:grid; gap:16px}
+    @media(min-width:720px){.grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}}
+    @media(max-width:860px){.hero-grid{grid-template-columns:1fr;}}
+
+    .card{background:var(--card); border:1px solid rgba(255,255,255,.08); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow)}
+    .card h3{margin:0 0 8px; font-size:18px}
+    .card p{margin:0}
+    .meta{color:var(--muted); font-size:14px}
+
+    .list{display:grid; gap:10px}
+    .list li{display:flex; gap:10px; align-items:flex-start}
+    .dot{width:8px; height:8px; margin-top:9px; border-radius:999px; background:var(--brand)}
+
+    footer{padding:30px 0 50px; color:var(--muted)}
+    .footer-links{display:flex; flex-wrap:wrap; gap:12px}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <span aria-hidden="true">🧠</span>
+        <span>Stefani Kaline</span>
+        <span class="badge">Freelancer • Dados e IA</span>
+      </div>
+      <nav class="links" aria-label="Links principais">
+        <a href="#servicos">Serviços</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#experiencia">Experiência</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <h1 class="title">Engenharia de Dados, Automação e IA que viram resultado.</h1>
+          <p class="subtitle">Python • SQL • BigQuery • Airflow • GCP • IA aplicada a dados. 
+            Ajudo empresas a coletar, transformar e usar dados com eficiência.</p>
+          <div class="cta">
+            <a class="btn" href="mailto:stefanikaline15@gmail.com">
+              <span aria-hidden="true">✉️</span> Fale comigo
+            </a>
+            <a class="btn secondary" href="https://www.linkedin.com/in/stefanikdias" target="_blank" rel="noopener">
+              <span aria-hidden="true">🔗</span> LinkedIn
+            </a>
+            <a class="btn" href="https://github.com/StefaniKaline" target="_blank" rel="noopener">
+              <span aria-hidden="true">🐙</span> GitHub
+            </a>
+          </div>
+        </div>
+        <aside class="hero-card" aria-label="Habilidades">
+          <h2 style="margin:0 0 10px">Especialidades</h2>
+          <div class="hero-list">
+            <div class="chip">BigQuery</div>
+            <div class="chip">Airflow</div>
+            <div class="chip">GCP Storage</div>
+            <div class="chip">APIs & ETL</div>
+            <div class="chip">Dashboards</div>
+            <div class="chip">LLMs & Embeddings</div>
+            <div class="chip">Git/GitHub</div>
+            <div class="chip">Automação</div>
+          </div>
+          <p class="meta" style="margin-top:14px">Certificação: Google Cloud <strong>Associate Cloud Engineer</strong> (2024–2027)</p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="servicos">
+      <div class="container">
+        <h2 class="section-title">Serviços</h2>
+        <div class="grid grid-3">
+          <article class="card">
+            <h3>ETL/ELT & Pipelines</h3>
+            <p>Arquitetura e construção de pipelines com Airflow, Python e BigQuery. Particionamento, clustering e custo-eficiência.</p>
+          </article>
+          <article class="card">
+            <h3>Automação de Relatórios</h3>
+            <p>Coleta de APIs, limpeza e envio automático para BigQuery, Storage e e-mail. Rotinas diárias/semanais.</p>
+          </article>
+          <article class="card">
+            <h3>IA aplicada a Dados</h3>
+            <p>Embeddings, agentes e assistentes para documentação e análise semântica. Integração com bases e workflows.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projetos">
+      <div class="container">
+        <h2 class="section-title">Projetos</h2>
+        <div class="grid">
+          <article class="card">
+            <div class="pill">Google Apps Script • GCP</div>
+            <h3 style="margin-top:8px">Porto Solaris</h3>
+            <p>Automação que formata dados do Google Sheets e envia para o Google Cloud Storage e e-mail via conta de serviço. Inclui template de e-mail e validações.</p>
+            <ul class="list" style="margin:10px 0 0; padding-left:0; list-style:none">
+              <li><span class="dot"></span><span>Funções: <code>getToken()</code>, <code>dataformatter()</code>, <code>sendEmail()</code>, <code>main()</code>.</span></li>
+              <li><span class="dot"></span><span>Config: <em>SPREADSHEETID</em>, <em>SHEETNAME</em>, <em>STORAGE_BUCKET</em>, <em>FILE_PATH</em>.</span></li>
+            </ul>
+            <p style="margin-top:10px"><a href="https://github.com/StefaniKaline" target="_blank" rel="noopener">Ver repositório</a></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="experiencia">
+      <div class="container">
+        <h2 class="section-title">Experiência</h2>
+        <div class="grid">
+          <article class="card">
+            <h3>Jabuti AGI — Eng. Software de Pessoas Digitais</h3>
+            <p class="meta">Nov/2024 — Atual</p>
+            <p>Ferramentas em Python para agentes de IA: gestão de embeddings, prompts e workflows inteligentes.</p>
+          </article>
+          <article class="card">
+            <h3>Media.Monks (Raccoon) — Eng. de Dados</h3>
+            <p class="meta">Jun/2022 — Out/2024</p>
+            <p>Pipelines de dados escaláveis no GCP (BigQuery/Storage) e automação com Airflow e Python.</p>
+          </article>
+          <article class="card">
+            <h3>Realtec — Programadora (Delphi)</h3>
+            <p class="meta">Jan/2021 — Fev/2022</p>
+            <p>Desenvolvimento de sistemas para agronegócio; módulos de estoque, finanças e vendas.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato">
+      <div class="container">
+        <h2 class="section-title">Contato</h2>
+        <div class="card">
+          <p>Vamos conversar sobre o seu projeto? Envie um e-mail ou fale comigo no LinkedIn.</p>
+          <ul class="list" style="margin:10px 0 0; padding-left:0; list-style:none">
+            <li><span class="dot"></span><span>Email: <a href="mailto:stefanikaline15@gmail.com">stefanikaline15@gmail.com</a></span></li>
+            <li><span class="dot"></span><span>LinkedIn: <a href="https://www.linkedin.com/in/stefanikdias" target="_blank" rel="noopener">linkedin.com/in/stefanikdias</a></span></li>
+            <li><span class="dot"></span><span>GitHub: <a href="https://github.com/StefaniKaline" target="_blank" rel="noopener">github.com/StefaniKaline</a></span></li>
+            <li><span class="dot"></span><span>Local: Rio Paranaíba – MG, Brasil</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-links">
+        <span>© <span id="year"></span> Stefani Kaline</span>
+        <span>•</span>
+        <a href="#">Topo</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
